@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthBot AI Assistant - Your Healthcare Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="HealthBot AI Assistant - Get healthcare information, book appointments, and access medical resources">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-title">
+                <span class="header-icon">🏥</span>
+                <h1>HealthBot AI Assistant</h1>
+                <div class="header-icons">
+                    <span>🩺</span>
+                    <span>💊</span>
+                    <span>❤️</span>
+                </div>
+            </div>
+            <div class="header-status">
+                <span class="status-indicator"></span>
+                <span class="status-text">Online</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" role="complementary">
+            <div class="sidebar-header">
+                <h3>Quick Actions</h3>
+            </div>
+            <div class="quick-actions" role="navigation" aria-label="Quick actions">
+                <button class="action-btn" data-action="symptoms" aria-label="Check symptoms">
+                    <span class="action-icon">🩺</span>
+                    <span class="action-label">Check Symptoms</span>
+                </button>
+                <button class="action-btn" data-action="appointment" aria-label="Book appointment">
+                    <span class="action-icon">📅</span>
+                    <span class="action-label">Book Appointment</span>
+                </button>
+                <button class="action-btn" data-action="faq" aria-label="Frequently asked questions">
+                    <span class="action-icon">❓</span>
+                    <span class="action-label">FAQ</span>
+                </button>
+                <button class="action-btn" data-action="emergency" aria-label="Emergency help">
+                    <span class="action-icon">🚨</span>
+                    <span class="action-label">Emergency Help</span>
+                </button>
+                <button class="action-btn" data-action="medications" aria-label="Medication information">
+                    <span class="action-icon">💊</span>
+                    <span class="action-label">Medications</span>
+                </button>
+                <button class="action-btn" data-action="tips" aria-label="Health tips">
+                    <span class="action-icon">💡</span>
+                    <span class="action-label">Health Tips</span>
+                </button>
+            </div>
+            <div class="sidebar-footer">
+                <button class="btn btn--secondary btn--sm" id="clearChat" aria-label="Clear chat history">
+                    🗑️ Clear Chat
+                </button>
+            </div>
+        </aside>
+
+        <!-- Chat Area -->
+        <main class="chat-container" role="main">
+            <div class="chat-messages" id="chatMessages" role="log" aria-label="Chat messages" aria-live="polite">
+                <!-- Messages will be dynamically added here -->
+            </div>
+            
+            <!-- Input Area -->
+            <div class="chat-input-container">
+                <div class="typing-indicator hidden" id="typingIndicator">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="typing-text">HealthBot is typing...</span>
+                </div>
+                <form class="chat-input-form" id="chatForm">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="messageInput" 
+                            class="form-control" 
+                            placeholder="Type your message or health question..."
+                            aria-label="Message input"
+                            autocomplete="off"
+                            required
+                        >
+                        <button type="submit" class="btn btn--primary" aria-label="Send message">
+                            <span class="send-icon">📤</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Forms -->
+    <div class="modal hidden" id="formModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-backdrop" tabindex="-1"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Form</h2>
+                <button class="modal-close" aria-label="Close modal" type="button">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic form content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Modal -->
+    <div class="modal emergency-modal hidden" id="emergencyModal" role="dialog" aria-labelledby="emergencyTitle" aria-hidden="true">
+        <div class="modal-backdrop" tabindex="-1"></div>
+        <div class="modal-content">
+            <div class="modal-header emergency-header">
+                <h2 id="emergencyTitle">🚨 EMERGENCY</h2>
+                <button class="modal-close" aria-label="Close emergency modal" type="button">&times;</button>
+            </div>
+            <div class="modal-body emergency-body">
+                <div class="emergency-warning">
+                    <p><strong>If this is a life-threatening emergency, call 911 immediately!</strong></p>
+                </div>
+                <div class="emergency-contacts">
+                    <h3>Emergency Contacts:</h3>
+                    <div class="contact-item">
+                        <strong>Emergency Services:</strong> <a href="tel:911">911</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Poison Control:</strong> <a href="tel:1-800-222-1222">1-800-222-1222</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Crisis Hotline:</strong> <a href="tel:988">988</a>
+                    </div>
+                </div>
+                <div class="emergency-actions">
+                    <button class="btn btn--primary btn--full-width" onclick="window.open('tel:911')">
+                        📞 Call 911 Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
